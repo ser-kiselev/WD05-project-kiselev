@@ -803,6 +803,7 @@ a.title-medium,
   background-image: -o-linear-gradient(bottom, #3d7aa0 0%, #8abbda 100%);
   background-image: linear-gradient(0deg, #3d7aa0 0%, #8abbda 100%);
   border-radius: 4px;
+  color: #fff;
 }
 .notification--with-description {
   -webkit-border-top-right-radius: 4px;

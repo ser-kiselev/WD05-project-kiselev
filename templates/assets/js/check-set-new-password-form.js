@@ -2,10 +2,10 @@ $(document).ready(function() {
 
 	var checkSetNewPassword = (function(){
 
-		// Переменные паттерн-модуля
+		// Переменные модуля
 		var _submitNewPass = $('#submitNewPass');
 
-		// Метод запуска паттерн-модуля
+		// Метод запуска модуля
 		var init = function(){
 			// Запускаем прослушку событий
 			_setUpListeners();
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 	}());
 
-	// Запускаем модуль проверки регистрации
+	// Запускаем модуль проверки формы «Задать новый пароль»
 	checkSetNewPassword.init();
 
 });

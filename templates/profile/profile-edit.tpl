@@ -5,18 +5,28 @@
 
 			<?php require ROOT . "templates/_parts/_errors.tpl" ?>
 
-			<form enctype="multipart/form-data" class="mt-35" action="<?=HOST?>profile-edit" method="POST">
+			<form enctype="multipart/form-data" class="mt-35" action="<?=HOST?>profile-edit" method="POST" novalidate>
 				<div class="user-edit-wrapper">
+					
 					<div class="user-edit-name"><label class="label" for="userEditName">Имя</label>
-						<input class="input" name="name" id="userEditName" type="text" placeholder="Введите имя" value="<?=$currentUser->name?>" />
+
+						<div id="enterName" class="notification__title notification--error mt-10 mb-10 hidden">Введите имя</div>
+
+						<input id="userEditName" class="input" name="name" type="text" placeholder="Введите имя" value="<?=$currentUser->name?>" />
 					</div>
+					
 					<div class="user-edit-lastname mt-30"><label class="label" for="userEditLastname">Фамилия</label>
-						<input class="input" name="secondname" id="userEditLastname" type="text" placeholder="Введите фамилию" value="<?=$currentUser->secondname?>" />
+
+						<div id="enterLastName" class="notification__title notification--error mt-10 mb-10 hidden">Введите фамилию</div>
+
+						<input id="userEditLastname" class="input" name="secondname" type="text" placeholder="Введите фамилию" value="<?=$currentUser->secondname?>" />
 					</div>
+					
 					<div class="user-edit-email mt-30"><label class="label" for="userEditEmail">Email</label>
 						<input class="input" name="email" id="userEditEmail" type="email" placeholder="Введите email" value="<?=$currentUser->email?>" />
 					</div>
 				</div>
+				
 				<div class="user-edit-foto mt-30">
 					<section class="upload-file">
 						<h6 class="upload-file__title">Фотография</h6>
@@ -34,7 +44,7 @@
 						<input class="input" name="city" id="userEditCity" type="text" placeholder="Введите город" value="<?=$currentUser->city?>" />
 					</div>
 					<div class="user-edit-buttons mt-30">
-						<input class="button button-save" type="submit" name="profile-update" value="Сохранить" />
+						<input id="editProfileSubmit" class="button button-save" type="submit" name="profile-update" value="Сохранить" />
 						<a href="<?=HOST?>profile" class="button">Отмена</a>
 					</div>
 				</div>

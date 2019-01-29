@@ -4,9 +4,9 @@
 			<div class="avatar avatar--small">
 
 				<?php if ( $_SESSION['logged_user']['avatar_small'] != "") { ?>
-					<img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?> " alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
+					<img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
 				<?php } else { ?>
-					<img src="<?=HOST?>templates/assets/img/placeholders/user-avatar-placeholder-big.jpg?> " alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
+					<img src="<?=HOST?>templates/assets/img/placeholders/user-avatar-placeholder-small.jpg?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
 				<?php } ?>
 		
 			</div>
