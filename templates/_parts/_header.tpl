@@ -34,11 +34,11 @@ if ( isset($_SESSION['logged_user']) && $_SESSION['login'] == 1 && $_SESSION['ro
 	</div>
 	<div class="row">
 		<nav class="nav">
-			<a class="nav__link" href="<?=HOST?>">Главная</a>
-			<a class="nav__link" href="about-me.html">Обо мне</a>
-			<a class="nav__link" href="works.html">Работы</a>
-			<a class="nav__link" href="blog.html">Блог</a>
-			<a class="nav__link" href="contacts.html">Контакты</a>
+			<a class="nav__link <?=($uri[0] == "") ? "nav__link--active" : ""?>" href="<?=HOST?>">Главная</a>
+			<a class="nav__link <?=($uri[0] == "about") ? "nav__link--active" : ""?>" href="<?=HOST?>about">Обо мне</a>
+			<a class="nav__link <?=($uri[0] == "portfolio") ? "nav__link--active" : ""?>" href="<?=HOST?>portfolio">Работы</a>
+			<a class="nav__link <?=($uri[0] == "blog") ? "nav__link--active" : ""?>" href="<?=HOST?>blog">Блог</a>
+			<a class="nav__link <?=($uri[0] == "contacts") ? "nav__link--active" : ""?>" href="<?=HOST?>contacts">Контакты</a>
 		</nav>
 	</div>
 </header>

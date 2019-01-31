@@ -1,14 +1,14 @@
 <?php 
 
-$title = "Блог - все записи";
+// Выводим пост
+$post = R::findOne('posts', 'id = ?', array($_GET['id']));
 
-// Выводим посты
-$posts = R::find('posts', 'ORDER BY id DESC');
+$title = $post['title'];
 
 // Готовим контент для центральной части
 ob_start();
 include ROOT . "templates/_parts/_header.tpl";
-include ROOT . "templates/blog/blog-all-posts.tpl";
+include ROOT . "templates/blog/blog-post.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

@@ -105,4 +105,17 @@ function adopt($text) {
 	return '=?UTF-8?B?'.base64_encode($text).'?=';
 }
 
+// Обрезка длинных заголовков
+function mbCutString($string, $length, $postfix = '...', $encoding = 'UTF-8') {
+	
+	if ( mb_strlen($string, $encoding) <= $length ) {
+		return $string;
+	}
+
+	$temp = mb_substr($string, 0, $length, $encoding);
+	$spacePosition = mb_strripos($temp, " ", 0, 'UTF-8');
+	$result = mb_substr($temp, 0, $spacePosition, $encoding) . "...";
+	return $result;
+}
+
 ?>

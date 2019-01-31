@@ -17,7 +17,7 @@ switch ( $uri[0] ) {
 		require ROOT . "modules/main/index.php";
 		break;
 
-	// Пользователи
+	// ПОЛЬЗОВАТЕЛИ --------------------------------------
 	case 'login':
 		require ROOT . "modules/login/login.php";
 		break;
@@ -60,9 +60,21 @@ switch ( $uri[0] ) {
 		include "modules/contacts/index.php";
 		break;
 
+	// БЛОГ --------------------------------------
+
 	case 'blog':
 		include "modules/blog/index.php";
 		break;
+
+	case 'blog/post-new':
+		include "modules/blog/post-new.php";
+		break;
+
+	case 'blog/post':
+		include "modules/blog/post.php";
+		break;
+
+	// -------------------------------------------
 
 	default:
 		echo "404 and Main page";
