@@ -20,7 +20,14 @@
 				<div class="post-info__comments"><a class="postlink" href="#">2 комментария</a></div>
 			</div>
 			<div class="post-img">
-				<img src="<?=HOST?>usercontent/blog/<?=$post['post_img']?>" alt="<?=$post['title']?>" />
+
+				<?php if ( $post['post_img'] != "" ) { ?>
+					<img src="<?=HOST?>usercontent/blog/<?=$post['post_img']?>" alt="<?=$post['title']?>" />
+				<?php } else { ?>
+					<img src="<?=HOST?>usercontent/blog-no-img-big.jpg" alt="<?=$post['title']?>" />
+				<?php } ?>
+
+				
 			</div>
 			<div class="post-content mb-25">
 				<?=$post['text']?>

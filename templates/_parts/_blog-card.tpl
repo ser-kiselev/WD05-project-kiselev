@@ -5,12 +5,12 @@
 			<?php if ( $post->post_img_small != "" ) { ?>
 				<img src="<?=HOST?>usercontent/blog/<?=$post->post_img_small?>" alt="<?=$post->title?>" />
 			<?php } else { ?>
-				<img src="<?=HOST?>usercontent/blog/blog-no-img.jpg" alt="<?=$post->title?>" />
+				<img src="<?=HOST?>usercontent/blog-no-img.jpg" alt="<?=$post->title?>" />
 			<?php } ?>
 
 		</div>
 		<div class="card-box__title">
-			<?php echo mbCutString($post->title, 47); ?>		
+			<?php echo mbCutString($post->title, 47); ?>	
 		</div>
 		<a class="button card-box--button" href="<?=HOST?>blog/post?id=<?=$post->id?>">Читать</a>
 	</div>

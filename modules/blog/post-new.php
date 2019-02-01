@@ -4,13 +4,17 @@ $title = "Блог - Добавить новый пост";
 
 if ( isset($_POST['postNew']) ) {
 	
-	if ( trim($_POST['postTitle']) == '' ) {
+	if ( trim($_POST['postTitle']) == '' && trim($_POST['postText']) == '' ) {
+		$errors[] = ['title' => 'Введите название и текст поста'];
+	} else if ( trim($_POST['postTitle']) == '' ) {
 		$errors[] = ['title' => 'Введите название поста'];
-	}
-
-	if ( trim($_POST['postText']) == '' ) {
+	} else if ( trim($_POST['postText']) == '' ){
 		$errors[] = ['title' => 'Введите текст поста'];
 	}
+
+	// if ( trim($_POST['postText']) == '' ) {
+	// 	$errors[] = ['title' => 'Введите текст поста'];
+	// }
 
 	if ( empty($errors) ) {
 		$post = R::dispense('posts');
