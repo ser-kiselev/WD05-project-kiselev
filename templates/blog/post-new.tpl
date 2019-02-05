@@ -13,6 +13,18 @@
 
 						<input id="addPostName" class="input" name="postTitle" type="text" placeholder="Введите название поста" />
 					</div>
+
+					<div class="category mt-30">
+						<label class="label">Категория</label>
+						<div class="category_select mt-15">
+							<select name="postCat">
+								<?php foreach ($cats as $cat) { ?>
+									<option value="<?=$cat['id']?>"><?=$cat['cat_title']?></option>
+								<?php } ?>
+							</select>
+						</div>
+					</div>
+
 					<div class="add-post-content__img mt-30">
 						<section class="upload-file">
 							<h6 class="upload-file__title">Изображение</h6>
@@ -23,10 +35,14 @@
 						</section>
 					</div>
 					<div class="add-post-content__main mt-30"><label class="label" for="postText">Содержание</label>
+					</div>
+					<div class="add-post-content__main mt-20">
 
 						<div id="enterPostText" class="notification__title notification--error mt-10 mb-10 hidden">Введите текст поста</div>
 
-						<textarea id="addPostText" class="textarea" name="postText" placeholder="Введите текст поста"></textarea>
+						<textarea id="ckEditor" class="textarea" name="postText" placeholder="Введите текст поста"></textarea>
+
+						<?php include_once ROOT . "templates/_parts/_ckeditorConnect.tpl" ?>
 					</div>
 					<div class="add-post-content__submit mt-30">
 						<input id="newPostSubmit" class="button button-save mr-20" type="submit" name="postNew" value="Сохранить" />

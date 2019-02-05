@@ -4,7 +4,7 @@ function isAdmin(){
 	$result = false;
 	if ( isset($_SESSION['logged_user']) && $_SESSION['login'] == 1 ) {
 		if ($_SESSION['role'] == 'admin') {
-				$result = true;
+			$result = true;
 		}
 	}
 	return $result;

@@ -4,19 +4,43 @@
 			<div class="post">
 				<div class="post-head">
 					<div class="row">
-						<div class="col-9">
+						<div class="col">
 							<h1 class="title-general mb-0 mt-0"><?=$post['title']?></h1>
 						</div>
-						<div class="col-3 text-right">
-							<a class="button button-edit" href="#">Редактировать</a>
-						</div>
+
+						<?php if ( isAdmin() ) { ?>
+							<div class="col-auto text-right">
+								<a class="button button-edit mr-10" href="<?=HOST?>blog/post-edit?id=<?=$post['id']?>">Редактировать</a>
+								<a class="button button-delete" href="<?=HOST?>blog/post-delete?id=<?=$post['id']?>">Удалить</a>
+							</div>
+						<?php } ?>
+						
 					</div>
-				</div>			
+				</div>
 			</div>
 			<div class="post-info">
-				<div class="post-info__author">Емельян Казаков</div>
-				<div class="post-info__topic"><a class="postlink" href="#">Путешествия</a></div>
-				<div class="post-info__date"><? echo rus_date("j F Y H:i", strtotime($post['date_time'])); ?></div>
+				<div class="post-info__author">
+					<?=$post['name']?> <?=$post['secondname']?>
+				</div>
+				<div class="post-info__topic">
+					<a class="postlink" href="#"><?=$post['cat_title']?></a>
+				</div>
+
+				
+				<?php if ( $post['update_time'] != "" ) { ?>
+					<div class="post-info__date">
+						<? echo rus_date("j F Y H:i", strtotime($post['date_time'])); ?>
+					</div>
+					<div class="post-info__date post-info__date--update">
+						<span>Обновлено: </span>
+						<? echo rus_date("j F Y H:i", strtotime($post['update_time'])); ?>
+					</div>
+				<?php } else { ?>
+					<div class="post-info__date">
+						<? echo rus_date("j F Y H:i", strtotime($post['date_time'])); ?>
+					</div>
+				<?php } ?>
+
 				<div class="post-info__comments"><a class="postlink" href="#">2 комментария</a></div>
 			</div>
 			<div class="post-img">

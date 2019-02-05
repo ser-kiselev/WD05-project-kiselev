@@ -1,7 +1,11 @@
 <?php 
 
-$title = "Редактировать категорию";
+if ( !isAdmin() ) {
+	header('Location: ' . HOST);
+	die();
+}
 
+$title = "Редактировать категорию";
 $cat = R::load('categories', $_GET['id']);
 
 if ( isset($_POST['catEdit']) ) {

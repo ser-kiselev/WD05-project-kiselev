@@ -8,7 +8,7 @@
 				
 				<form action="<?=HOST?>blog/category-new" method="POST" novalidate>
 					<div class="add-post-content__name mt-40"><label class="label" for="postTitle">Название категории</label>
-						<input class="input" name="catTitle" type="text" placeholder="Введите название поста" />
+						<input class="input" name="catTitle" type="text" placeholder="Введите название категории" />
 					</div>
 
 					<div class="add-post-content__submit mt-30">
