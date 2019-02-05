@@ -60,7 +60,7 @@
 		</div>
 	</div>
 	
-	<!-- <div class="row">
+	<div class="row">
 		<div class="col-10 offset-1">
 			<div class="user-comments-wrapper mb-25">
 				<div class="title-2">2 комментария</div>
@@ -85,15 +85,33 @@
 					</div>
 				</div>
 			</div>
+			
 			<h2 class="title-2 m-0 mb-15">Оставить комментарий</h2>
 			<div class="comments-submit">
-				<div class="avatar avatar--small"><img src="../img/avatars/avatar.jpg" alt="alt text avatar" /></div>
-				<div class="comments-form"><b class="comments__author">Юрий Ключевский</b>
-					<div class="notification">
-						<div class="notification__title notification--error">Комментарий не может быть пустым</div>
-					</div><textarea class="textarea" name="comment-user" placeholder="Присоединиться к обсуждению..."></textarea><input class="button mt-10" type="submit" name="infoButton" value="Опубликовать" />
+				<div class="avatar avatar--small">	
+					<?php if ( $_SESSION['logged_user']['avatar_small'] != "") { ?>
+						<img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
+					<?php } else { ?>
+						<img src="<?=HOST?>templates/assets/img/placeholders/user-avatar-placeholder-small.jpg?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
+					<?php } ?>
 				</div>
+
+				<form id="commentForm" class="comments-form" method="POST" action="<?=HOST?>blog/post?id=<?=$post['id']?>">
+					<b class="comments__author">
+						<?=$_SESSION['logged_user']['name']?> 
+						<?=$_SESSION['logged_user']['secondname']?>
+					</b>
+					<div class="notification">
+						<div id="enterComment" class="notification__title notification--error hidden">Комментарий не может быть пустым</div>
+					</div>
+
+					<textarea id="user-comment" class="textarea" name="commentText" placeholder="Присоединиться к обсуждению..."></textarea>
+
+					<input type="hidden" name="addComment">
+					<input id="commentSubmit" class="button mt-10" type="submit" name="addComment" value="Опубликовать" data-add-comment />
+				</form>
 			</div>
+
 		</div>
-	</div> -->
+	</div>
 </div>

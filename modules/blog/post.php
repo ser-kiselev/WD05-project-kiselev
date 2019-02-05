@@ -16,6 +16,23 @@ $post = $post[0];
 
 $title = $post['title'];
 
+if ( isset($_POST['addComment']) ) {
+	if ( trim($_POST['commentText']) ) {
+		$errors[] = ['title' => 'Комментарий не может быть пустым'];
+	}
+
+	if ( empty($errors) ) {
+		$comment = R::dispense('comments');
+		$comment->postId = htmlentities($_GET['id']);
+		$comment->userId = htmlentities($_SESSION['logged_user']['id']);
+		$comment->text = htmlentities($_POST['commentText']);
+		$comment->dateTime = R::isoDateTime();
+		R::store($comment);
+		header('Location: ' . HOST . "blog/postid=" . $_GET['id']);
+		exit();
+	}
+}
+
 // Готовим контент для центральной части
 ob_start();
 include ROOT . "templates/_parts/_header.tpl";
