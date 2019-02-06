@@ -105,9 +105,11 @@
 						<div id="enterComment" class="notification__title notification--error hidden">Комментарий не может быть пустым</div>
 					</div>
 
-					<textarea id="user-comment" class="textarea" name="commentText" placeholder="Присоединиться к обсуждению..."></textarea>
+					<?php require ROOT . "templates/_parts/_errors.tpl" ?>
 
-					<input type="hidden" name="addComment">
+					<textarea id="userComment" class="textarea" name="commentText" placeholder="Присоединиться к обсуждению..."></textarea>
+
+					<!-- <input type="hidden" name="addComment"> -->
 					<input id="commentSubmit" class="button mt-10" type="submit" name="addComment" value="Опубликовать" data-add-comment />
 				</form>
 			</div>

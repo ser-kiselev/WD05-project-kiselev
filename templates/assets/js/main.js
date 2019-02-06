@@ -13,16 +13,16 @@ $(document).ready(function() {
 	// Проверка перед отправкой комментария
 	$('#commentSubmit').on('click', function(e){
 		e.preventDefault();
-		var userComment = $('#user-comment'),
+		var userComment = $('#userComment'),
 			enterComment = $('#enterComment');
 		if ( userComment.val() == '' ) {
 			// Показываем ошибку
 			enterComment.fadeIn(500);
 		} else {
-			$('#commentForm').submit();
+			$('#commentSubmit').unbind('click').click();
 		}
 		// Скрываем нотификацию об ошибке при вводе комментария
-		$('#user-comment').keypress(function(){
+		userComment.keypress(function(){
 			enterComment.fadeOut();
 		});
 	});

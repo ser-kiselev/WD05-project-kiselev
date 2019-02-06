@@ -17,7 +17,7 @@ $post = $post[0];
 $title = $post['title'];
 
 if ( isset($_POST['addComment']) ) {
-	if ( trim($_POST['commentText']) ) {
+	if ( trim($_POST['commentText'] == '') ) {
 		$errors[] = ['title' => 'Комментарий не может быть пустым'];
 	}
 
@@ -28,7 +28,7 @@ if ( isset($_POST['addComment']) ) {
 		$comment->text = htmlentities($_POST['commentText']);
 		$comment->dateTime = R::isoDateTime();
 		R::store($comment);
-		header('Location: ' . HOST . "blog/postid=" . $_GET['id']);
+		header('Location: ' . HOST . "blog/post?id=" . $_GET['id']);
 		exit();
 	}
 }
