@@ -1872,7 +1872,7 @@ h1.works-title-text {
 }
 .user-profile__button {
   position: absolute;
-  right: -110px;
+  right: 0;
   top: 0;
 }
 .user-profile-information {

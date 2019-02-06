@@ -3,7 +3,7 @@
 		<div class="avatar avatar--small">
 			
 			<?php if ( $comment['avatar_small'] != "") { ?>
-				<img src="<?=HOST?>usercontent/avatar/<?=$comments['avatar_small']?>" alt="<?=$comment['name']?> <?=$comment['secondname']?>" />
+				<img src="<?=HOST?>usercontent/avatar/<?=$comment['avatar_small']?>" alt="<?=$comment['name']?> <?=$comment['secondname']?>" />
 			<?php } else { ?>
 				<img src="<?=HOST?>templates/assets/img/placeholders/user-avatar-placeholder-small.jpg?>" alt="<?=$comment['name']?> <?=$comment['secondname']?>" />
 			<?php } ?>

@@ -23,12 +23,13 @@
 
 			<textarea id="userComment" class="textarea" name="commentText" placeholder="Присоединиться к обсуждению..."></textarea>
 
-			<!-- <input type="hidden" name="addComment"> -->
 			<input id="commentSubmit" class="button mt-10" type="submit" name="addComment" value="Опубликовать" data-add-comment />
 		</form>
 	</div>
 <?php } else { ?>
 	<!-- Если пользователь не авторизован на сайте -->
-	<div style="margin: 0 40px; font-size: 28px"><strong>Войдите или зарегистрируйтесь, чтобы оставить комментарий</strong></div>
-<!-- // Если пользователь не авторизован на сайте -->
+	<div class="comments-unregistered">
+		<p class="comments-unregistered__note"><a class="link" href="<?=HOST?>login">Войдите</a> или <a class="link" href="<?=HOST?>registration">Зарегистрируйтесь</a> чтобы оставить комментарий</p>
+	</div>
+	<!-- // Если пользователь не авторизован на сайте -->
 <?php } ?>
