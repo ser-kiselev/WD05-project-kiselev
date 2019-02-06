@@ -4,7 +4,9 @@
 			<div class="add-post-content">
 				<h1 class="title-general mt-0 mb-0">Удалить категорию</h1>
 
-				<p>Вы действительно хотите удалить категорию <strong><?=$cat['cat_title']?></strong> с id = <?=$cat['id']?>?</p>
+				<div class="mt-40">
+					<p>Вы действительно хотите удалить категорию <strong><?=$cat['cat_title']?></strong> с id = <?=$cat['id']?>?</p>
+				</div>
 				
 				<form action="<?=HOST?>blog/category-delete?id=<?=$cat['id']?>" method="POST" novalidate>
 

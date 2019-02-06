@@ -1,4 +1,4 @@
-<div class="col-4 mb-30 pl-0">
+<div class="col-4 mb-35 pl-0">
 	<div class="card-box">
 		<div class="card-box__img-blog">
 

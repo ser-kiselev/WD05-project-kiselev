@@ -1,7 +1,11 @@
 <?php 
 
-$title = "Категории блога";
+if ( !isAdmin() ) {
+	header('Location: ' . HOST);
+	die();
+}
 
+$title = "Категории блога";
 $cats = R::find('categories', 'ORDER BY id DESC');
 
 // Готовим контент для центральной части

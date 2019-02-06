@@ -1,7 +1,11 @@
 <?php 
 
-$title = "Удалить категорию";
+if ( !isAdmin() ) {
+	header('Location: ' . HOST);
+	die();
+}
 
+$title = "Удалить категорию";
 $cat = R::load('categories', $_GET['id']);
 
 if ( isset($_POST['catDelete']) ) {
