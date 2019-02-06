@@ -41,7 +41,12 @@
 					</div>
 				<?php } ?>
 
-				<div class="post-info__comments"><a class="postlink" href="#">2 комментария</a></div>
+				<?php if ( count($comments) > 0 ) { ?>
+					<div class="post-info__comments">
+						<a class="postlink" href="#comments"><?php commentNumber( count($comments) ); ?></a>
+					</div>
+				<?php } ?>
+
 			</div>
 			<div class="post-img">
 
@@ -62,57 +67,20 @@
 	
 	<div class="row">
 		<div class="col-10 offset-1">
-			<div class="user-comments-wrapper mb-25">
-				<div class="title-2">2 комментария</div>
-				<div class="user-comment">
-					<div class="user-comment__avatar">
-						<div class="avatar avatar--small"><img src="../img/avatars/avatar-2.jpg" alt="Джон До собственной персоной" /></div>
-					</div>
-					<div class="user-comment-info-wrapper"><span class="user-comment__name">Джон До</span><span class="user-comment__date"><i class="far fa-clock"></i>01 декабря 2018 года в 15:37</span>
-						<div class="user-comment__text">
-							<p>Замечательный парк, обязательно отправлюсь туда этим летом. </p>
-						</div>
-					</div>
-				</div>
-				<div class="user-comment">
-					<div class="user-comment__avatar">
-						<div class="avatar avatar--small"><img src="../img/avatars/avatar-3.jpg" alt="Джейн До собственной персоной" /></div>
-					</div>
-					<div class="user-comment-info-wrapper"><span class="user-comment__name">Джейн До</span><span class="user-comment__date"><i class="far fa-clock"></i>02 декабря 2018 года в 19:47</span>
-						<div class="user-comment__text">
-							<p>Согласна, парк просто потрясающий! Была там в прошлом году и нисколько не пожалела. Обязательно вернусь туда снова в следующем году.</p>
-						</div>
-					</div>
-				</div>
+			<div id="comments" class="user-comments-wrapper mb-25">
+				
+				<!-- Вывод комментариев -->
+				<?php if ( count($comments) > 0 ) { ?>
+					<div class="title-2"><?php commentNumber( count($comments) ); ?></div>
+
+					<?php foreach ($comments as $comment) {
+						include ROOT . "templates/blog/_comment-card.tpl";
+					} ?>
+				<?php } ?>
+
 			</div>
-			
-			<h2 class="title-2 m-0 mb-15">Оставить комментарий</h2>
-			<div class="comments-submit">
-				<div class="avatar avatar--small">	
-					<?php if ( $_SESSION['logged_user']['avatar_small'] != "") { ?>
-						<img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
-					<?php } else { ?>
-						<img src="<?=HOST?>templates/assets/img/placeholders/user-avatar-placeholder-small.jpg?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
-					<?php } ?>
-				</div>
 
-				<form id="commentForm" class="comments-form" method="POST" action="<?=HOST?>blog/post?id=<?=$post['id']?>">
-					<b class="comments__author">
-						<?=$_SESSION['logged_user']['name']?> 
-						<?=$_SESSION['logged_user']['secondname']?>
-					</b>
-					<div class="notification">
-						<div id="enterComment" class="notification__title notification--error hidden">Комментарий не может быть пустым</div>
-					</div>
-
-					<?php require ROOT . "templates/_parts/_errors.tpl" ?>
-
-					<textarea id="userComment" class="textarea" name="commentText" placeholder="Присоединиться к обсуждению..."></textarea>
-
-					<!-- <input type="hidden" name="addComment"> -->
-					<input id="commentSubmit" class="button mt-10" type="submit" name="addComment" value="Опубликовать" data-add-comment />
-				</form>
-			</div>
+			<?php include ROOT . "templates/blog/_add-comment-form.tpl"; ?>
 
 		</div>
 	</div>
