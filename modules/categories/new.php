@@ -6,14 +6,14 @@ if ( !isAdmin() ) {
 }
 
 $title = "Создать новую категорию";
-
+	
 if ( isset($_POST['catNew']) ) {
 	
 	if ( trim($_POST['catTitle']) == '' ) {
 		$errors[] = ['title' => 'Введите название категории'];
 	}
 
-	if( R::count('categories', 'cat_title=?', array($_POST['catTitle']) ) > 0) {
+	if ( R::count('categories', 'cat_title=?', array($_POST['catTitle']) ) > 0 ) {
 		$errors[] = ['title' => 'Категория c таким названием уже существует'];
 	}
 
@@ -25,6 +25,7 @@ if ( isset($_POST['catNew']) ) {
 		exit();
 	}
 }
+
 
 // Готовим контент для центральной части
 ob_start();

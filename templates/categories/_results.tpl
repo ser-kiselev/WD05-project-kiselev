@@ -15,9 +15,3 @@
 		Категория успешно удалена
 	</div>
 <?php } ?>
-
-<?php if ( $_GET['result'] == 'catCreated' ) { ?>
-	<div class="notification__title notification--error mb-30" data-notify-hide>
-		Категория c таким названием уже существует
-	</div>
-<?php } ?>
