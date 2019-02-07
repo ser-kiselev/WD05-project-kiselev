@@ -1,7 +1,7 @@
 <?php 
 
 $title = "Контакты";
-// $cats = R::find('categories', 'ORDER BY id DESC');
+$contacts = R::load('contacts', 1);
 
 // Готовим контент для центральной части
 ob_start();
