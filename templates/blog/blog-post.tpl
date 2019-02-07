@@ -26,7 +26,6 @@
 					<a class="postlink" href="#"><?=$post['cat_title']?></a>
 				</div>
 
-				
 				<?php if ( $post['update_time'] != "" ) { ?>
 					<div class="post-info__date">
 						<? echo rus_date("j F Y H:i", strtotime($post['date_time'])); ?>
@@ -67,7 +66,7 @@
 	
 	<div class="row">
 		<div class="col-10 offset-1">
-			<div id="comments" class="user-comments-wrapper mb-25">
+			<div id="comments" class="user-comments-wrapper mt-20 mb-25">
 				
 				<!-- Вывод комментариев -->
 				<?php if ( count($comments) > 0 ) { ?>

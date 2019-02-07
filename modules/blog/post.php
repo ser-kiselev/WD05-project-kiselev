@@ -6,8 +6,8 @@ $sqlPost = 'SELECT
 			users.name, users.secondname,
 			categories.cat_title
 		FROM `posts`
-		INNER JOIN categories ON posts.cat = categories.id
-		INNER JOIN users ON posts.author_id = users.id
+		LEFT JOIN categories ON posts.cat = categories.id
+		LEFT JOIN users ON posts.author_id = users.id
 		WHERE posts.id = ' . $_GET['id'] .' LIMIT 1';
 
 $post = R::getAll($sqlPost);
