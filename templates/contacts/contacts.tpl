@@ -1,52 +1,70 @@
 <div class="container pt-55 pb-80">
 	<div class="row">
-		<div class="col-12 clearfix mb-30">
-			<a class="button float-right" href="<?=HOST?>messages">Сообщения</a>
-			<a class="button button-edit float-right mr-20" href="<?=HOST?>contacts-edit">Редактировать</a>
-		</div>
-		<div class="col-5">
+
+		<?php if ( isAdmin() ) { ?>
+			<div class="col-12 clearfix mb-30">
+				<a class="button float-right" href="<?=HOST?>messages">Сообщения</a>
+				<a class="button button-edit float-right mr-20" href="<?=HOST?>contacts-edit">Редактировать</a>
+			</div>
+		<?php } ?>
+		
+		<div class="col-6">
 			<h1 class="title-general mb-30">Контакты</h1>
-			<div class="row mb-15">
-				<div class="col-6 contacts-category">
-					<p>Email</p>
+
+			<?php function showContactsItem($name, $title) {
+				global $contacts;
+
+				if ( $contacts[$name] != "" ) { ?>
+				<div class="row mb-15">
+					<div class="col-6 contacts-category">
+						<p><?=$title?></p>
+					</div>
+					<div class="col-6 link-box-info">
+						<?php if ( $name == 'email' ) { ?>
+							<p><a class="link" href="mailto:<?=$contacts[$name]?>" target="_blank"><?=$contacts[$name]?></a></p>
+						<?php } else if ( $name == 'phone' ) { ?>
+							<p><a class="link" href="tel:<?=$contacts[$name]?>" target="_blank"><?=$contacts[$name]?></a></p>
+						<?php } else if ( $name == 'skype' ) { ?>
+							<p><a class="link" href="skype:<?=$contacts[$name]?>?chat" target="_blank"><?=$contacts[$name]?></a></p>
+						<?php } else if ( $name == 'github' ) { ?>
+							<p><a class="link" href="<?=$contacts[$name]?>" target="_blank"><?=$contacts[$name]?></a></p>
+						<?php } else { ?>
+							<?=$contacts[$name]?>
+						<?php } ?>
+					</div>
 				</div>
-				<div class="col-6 link-box-info">
-					<p><a class="link" href="#!">webdev-ninja@mail.ru</a></p>
+				<?php }
+			} ?>
+
+			<?php showContactsItem('email', 'Email') ?>
+			<?php showContactsItem('skype', 'Skype') ?>
+			<?php showContactsItem('github', 'Github') ?>
+
+			<?php if ( $contacts['vk'] != "" || $contacts['fb'] != "" || $contacts['twitter'] != "" ) { ?>
+				
+				<div class="row mb-15">
+					<div class="col-6 contacts-category">
+						<p>Социальные сети</p>
+					</div>
+					<div class="col-6 link-box-info">
+						<?php if ( $contacts['vk'] != "" ) { ?>
+							<p><a class="link link--bold" href="<?=$contacts['vk']?>" target="_blank">Профиль Вконтакте</a></p>
+						<?php } ?>
+						
+						<?php if ( $contacts['fb'] != "" ) { ?>
+							<p><a class="link link--bold" href="<?=$contacts['fb']?>" target="_blank">Профиль Facebook</a></p>
+						<?php } ?>
+
+						<?php if ( $contacts['twitter'] != "" ) { ?>
+							<p><a class="link link--bold" href="<?=$contacts['twitter']?>" target="_blank">Профиль Twitter</a></p>
+						<?php } ?>
+					</div>
 				</div>
-			</div>
-			<div class="row mb-15">
-				<div class="col-6 contacts-category">
-					<p>Skype</p>
-				</div>
-				<div class="col-6 link-box-info">
-					<p><a class="link" href="#!">webdev-ninja</a></p>
-				</div>
-			</div>
-			<div class="row mb-15">
-				<div class="col-6 contacts-category">
-					<p>Социальные сети</p>
-				</div>
-				<div class="col-6 link-box-info">
-					<p><a class="link link--bold" href="#!">Профиль Вконтакте</a></p>
-					<p><a class="link link--bold" href="#!">Профиль Facebook</a></p>
-				</div>
-			</div>
-			<div class="row mb-15">
-				<div class="col-6 contacts-category">
-					<p>Телефон</p>
-				</div>
-				<div class="col-6 info">
-					<p>+595-456-123</p>
-				</div>
-			</div>
-			<div class="row mb-15">
-				<div class="col-6 contacts-category">
-					<p>Адрес</p>
-				</div>
-				<div class="col-6 info">
-					<p>Россия, Московская обл. <br /> г. Зеленоград</p>
-				</div>
-			</div>
+			<?php } ?>
+
+			<?php showContactsItem('phone', 'Телефон') ?>
+			<?php showContactsItem('address', 'Адрес') ?>
+
 		</div>
 		
 		<div class="col-4 offset-1">
