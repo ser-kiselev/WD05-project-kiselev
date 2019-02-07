@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 06 2019 г., 23:18
+-- Время создания: Фев 08 2019 г., 00:10
 -- Версия сервера: 5.5.53
 -- Версия PHP: 5.6.29
 
@@ -85,6 +85,33 @@ INSERT INTO `comments` (`id`, `post_id`, `user_id`, `text`, `date_time`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `email` varchar(191) DEFAULT NULL,
+  `phone` varchar(191) DEFAULT NULL,
+  `address` varchar(191) DEFAULT NULL,
+  `secondname` varchar(191) DEFAULT NULL,
+  `skype` varchar(191) DEFAULT NULL,
+  `vk` varchar(191) DEFAULT NULL,
+  `fb` varchar(191) DEFAULT NULL,
+  `twitter` varchar(191) DEFAULT NULL,
+  `github` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `address`, `secondname`, `skype`, `vk`, `fb`, `twitter`, `github`) VALUES
+(1, 'Сергей', 'ser-kiselev@mail.ru', '+7 (920) 259 01 67', 'Нижний Новгород', 'Киселев', '79202590167', 'https://vk.com/sergey_kiselev52', '', '', 'https://github.com/ser-kiselev');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `posts`
 --
 
@@ -142,7 +169,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `role`, `name`, `secondname`, `c
 (4, '123@mail.com', '$2y$10$itSi0A1TfmbMSIkLRXxzt.kLH3.YT7CQsNqKY0GVtYB15sY5zuRRe', 'user', 'Григорий', 'Распутин', 'Российская Империя', 'Санкт-Петербург', '800417181.jpg', '48-800417181.jpg', NULL, NULL),
 (5, '456@mail.com', '$2y$10$JtAw6ASpPe3MKJ14.TeyzuzwLY4yWfMzCLpYAtwcf5JAq1tGeLPd2', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (6, '789@mail.com', '$2y$10$QjwYhJwtiNX19izHrDgyyuEx9Z5fP06g2lOcBcfe8shjjyLZOQKZG', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'mail@mail.com', '$2y$10$g6eGay8a3OLQfzEzyJu/keRlnCI1zngvBZXKTUJy3h/Xnl0RcsLKa', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'mail@mail.com', '$2y$10$g6eGay8a3OLQfzEzyJu/keRlnCI1zngvBZXKTUJy3h/Xnl0RcsLKa', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (8, 'admin@mysite.com', '$2y$10$H/Co2OLA5doOSAMcgzZ2q.sWE94Lq4W4hAguvyZRQxCNoI9wzcyTS', 'admin', 'Сергей', 'Киселев', 'Россия', 'Нижний Новгород', '362963387.jpg', '48-362963387.jpg', NULL, NULL),
 (9, 'sam@mail.com', '$2y$10$3pW6h0t4VQp6Peuc296tEeaO5mLbz3.WOzqgEjUUlJcMeOQxPNQ4W', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (10, 'vova@mail.com', '$2y$10$unbPxVaQo02u1g2ox3JI5OPLnW/H3PNbhLzGBg/U6gYCvA.YhB4Bi', 'user', 'Вова', 'Вованов', 'Казахстан', 'Астана', NULL, NULL, 'KtMGUilj9CSf4pa', 0),
@@ -173,6 +200,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `index_foreignkey_comments_post` (`post_id`),
   ADD KEY `index_foreignkey_comments_user` (`user_id`);
+
+--
+-- Индексы таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `posts`
@@ -206,6 +239,11 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT для таблицы `posts`
 --
