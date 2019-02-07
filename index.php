@@ -56,8 +56,19 @@ switch ( $uri[0] ) {
 		include "modules/about/index.php";
 		break;
 
+
+	// КОНТАКТЫ
+
 	case 'contacts':
 		include "modules/contacts/index.php";
+		break;
+
+	case 'contacts-edit':
+		include "modules/contacts/edit.php";
+		break;
+
+	case 'messages':
+		include "modules/contacts/messages.php";
 		break;
 
 	// БЛОГ --------------------------------------
