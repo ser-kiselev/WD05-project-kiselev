@@ -75,21 +75,33 @@
 			<?php require ROOT . "templates/_parts/_errors.tpl"; ?>
 			<?php require ROOT . "templates/_parts/_success.tpl"; ?>
 
-			<form class="feedback-form" action="<?=HOST?>contacts" method="POST" enctype="multipart/form-data">
-				<input class="input" name="name" type="text" placeholder="Введите имя" />
-				<input class="input" name="email" type="email" placeholder="Email" />
-				<textarea class="textarea mb-20" name="message" placeholder="Сообщение"></textarea>
+			<form id="feedbackForm" class="feedback-form" action="<?=HOST?>contacts" method="POST" enctype="multipart/form-data" novalidate>
+
+				<div id="enterName" class="notification__title notification--error mt-10 hidden">Введите имя</div>
+
+				<input id="senderName" class="input" name="name" type="text" placeholder="Введите имя" />
+
+				<div id="enterEmail" class="notification__title notification--error mt-10 hidden">Введите e-mail</div>
+
+				<div id="invalidEmail" class="notification__title notification--error mt-10 hidden">Неверный формат e-mail</div>
+
+				<input id="senderEmail" class="input" name="email" type="email" placeholder="Email" />
+
+				<div id="enterMessage" class="notification__title notification--error mt-10 hidden">Введите текст сообщения</div>
+
+				<textarea id="senderMessage" class="textarea mb-20" name="message" placeholder="Сообщение"></textarea>
+
 				<section class="upload-file">
 					<h6 class="upload-file__title">Прикрепить файл</h6>
-					<p class="upload-file__description">jpg, png, pdf, doc, весом до 2Мб.</p><input class="input-file" type="file" name="file" id="upload-file" data-multiple-caption="{count}" /><label class="input-file-mark input-file-mark--rounded" for="upload-file">Выбрать файл</label><span>Файл не выбран</span>
+					<p class="upload-file__description">jpg, png, pdf, doc, весом до 4Мб.</p><input class="input-file" type="file" name="file" id="upload-file" data-multiple-caption="{count}" /><label class="input-file-mark input-file-mark--rounded" for="upload-file">Выбрать файл</label><span>Файл не выбран</span>
 				</section>
-				<input class="button button-save mt-20" type="submit" name="newMessage" value="Отправить" />
+				
+				<input id="sendMessage" class="button button-save mt-20" type="submit" name="newMessage" value="Отправить" />
 			</form>
 
 		</div>
 	</div>
 </div>
 
-
 <div class="geolocation" id="map"></div>
-<script src="js/googlemap.js"></script>
+<script src="<?=HOST?>templates/assets/js/googlemap.js"></script>

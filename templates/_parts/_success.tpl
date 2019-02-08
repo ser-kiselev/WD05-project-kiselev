@@ -1,7 +1,7 @@
 <?php foreach ($success as $success_item) {
 	
 	if ( count($success_item) == 1 ) { ?>
-		<div class="notification__title notification--success">
+		<div class="notification__title notification--success" data-notify-hide>
 			<?=$success_item['title']?>
 		</div>
 

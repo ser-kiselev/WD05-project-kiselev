@@ -56,7 +56,6 @@ switch ( $uri[0] ) {
 		include "modules/about/index.php";
 		break;
 
-
 	// КОНТАКТЫ
 
 	case 'contacts':
@@ -69,6 +68,10 @@ switch ( $uri[0] ) {
 
 	case 'messages':
 		include "modules/contacts/messages.php";
+		break;
+
+	case 'message-delete':
+		include "modules/contacts/message-delete.php";
 		break;
 
 	// БЛОГ --------------------------------------
