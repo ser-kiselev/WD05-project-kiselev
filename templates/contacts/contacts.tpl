@@ -36,6 +36,8 @@
 				<?php }
 			} ?>
 
+			<?php showContactsItem('name', 'Имя') ?>
+			<?php showContactsItem('secondname', 'Фамилия') ?>
 			<?php showContactsItem('email', 'Email') ?>
 			<?php showContactsItem('skype', 'Skype') ?>
 			<?php showContactsItem('github', 'Github') ?>
