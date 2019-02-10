@@ -10,7 +10,7 @@
 
 		</div>
 		<div class="card-box__title">
-			<?php echo mbCutString($post->title, 47); ?>	
+			<?php echo mbCutString($post->title, 47); ?>
 		</div>
 		<a class="button card-box--button" href="<?=HOST?>blog/post?id=<?=$post->id?>">Читать</a>
 	</div>

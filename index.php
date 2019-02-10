@@ -108,7 +108,7 @@ switch ( $uri[0] ) {
 		include "modules/blog/post.php";
 		break;
 
-	// Категории
+	// КАТЕГОРИИ ----------------------------------
 	case 'blog/categories':
 		include "modules/categories/all.php";
 		break;
@@ -125,7 +125,22 @@ switch ( $uri[0] ) {
 		include "modules/categories/delete.php";
 		break;
 
-	// -------------------------------------------
+	// РАБОТЫ -----------------------------------
+	case 'portfolio':
+		include "modules/portfolio/index.php";
+		break;
+
+	case 'portfolio-new':
+		include "modules/portfolio/portfolio-new.php";
+		break;
+
+	case 'portfolio/portfolio-edit':
+		include "modules/portfolio/portfolio-edit.php";
+		break;
+
+	case 'portfolio/portfolio':
+		include "modules/portfolio/portfolio.php";
+		break;
 
 	default:
 		echo "404 and Main page";
